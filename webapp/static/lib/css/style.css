@@ -1,0 +1,13 @@
+.container {
+  float: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.formbutton{
+  margin-top: 5%;
+}
+
+.deletebutton{
+  margin: 20%;
+}
