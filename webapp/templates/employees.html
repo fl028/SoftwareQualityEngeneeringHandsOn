@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <h1>Employees</h1>
+  </div>
+  <div class="row">
+    <a href="/employees/create" class="button button-primary">
+      CREATE
+    </a>
+  </div>
+  <div class="row">
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>surname</th>
+          <th>lastname</th>
+          <th>salery</th>
+          <th>department</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in data %}
+        <tr>
+          <td>{{item[0]}}</td>
+          <td>{{item[1]}}</td>
+          <td>{{item[2]}}</td>
+          <td>{{item[3]}}</td>
+          <td>{{item[4]}}</td>
+          <td>
+            <div class="container">
+              <form action="/employees/delete/{{item[0]}}" method="POST">
+                <button class="button deletebutton" type="submit" name="action" value="delete">
+                  <i class="fa fa-times text-danger"></i>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <code>
+      There are {{count}} entries in the database.
+    </code>
+  </div>
+</div>
+{% endblock %}
