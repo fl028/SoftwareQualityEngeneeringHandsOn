@@ -1,24 +1,25 @@
 import unittest
 import webapp.db
-import sqlite3
 
 # run tests: python -m unittest discover tests
 
-class Testclass(unittest.TestCase):
+class TestDatabase(unittest.TestCase):
     def setUp(self):
         print("setUp")
-        webapp.db.init_db()
+        db = webapp.db.DB()
+        db.init_db()
 
     def tearDown(self):
         print("tearDown")
-        webapp.db.init_db()
+        db = webapp.db.DB()
+        db.init_db()
 
-    def test_get_all(self):
-        db = sqlite3.connect('employees.db')
-        cur = db.cursor()
-        cur.execute("select * from employees")
-        employees = cur.fetchall()
-
+    def test_get_all_employees(self):
+        # arrange
+        db = webapp.db.DB()
+        # act
+        employees = db.get_all_employees()
+        #assert
         self.assertEqual(len(employees), 3, "Should be 3")
 
 if __name__ == '__main__':

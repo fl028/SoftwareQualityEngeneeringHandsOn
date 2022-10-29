@@ -1,4 +1,5 @@
 import sqlite3
+import db
 from flask import Flask, render_template, g, jsonify,url_for,redirect, request
 
 app = Flask(__name__)
@@ -58,9 +59,8 @@ def view_employees_delete_by_button(id):
 
 @app.route('/api/employees')
 def api_employees():
-    cur = get_db().cursor()
-    cur.execute("select * from employees")
-    employees = cur.fetchall()
+    database = db.DB()
+    employees = database.get_all_employees()
     return jsonify(data = employees)
 
 @app.route('/api/employees/create', methods=["post"])
