@@ -12,4 +12,3 @@ Hands-on project DHBW CAS WiSe22-23
 8. Set Environment variables "set FLASK_APP=webapp/app", "set FLASK_DEBUG=1"
 9. Run WebApp: "flask run"
 10. Open Webapp in Browser: "http://127.0.0.1:5000/"
-
