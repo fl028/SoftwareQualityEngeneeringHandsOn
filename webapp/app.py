@@ -42,7 +42,7 @@ def view_employees_create_by_form():
     employee = {
         "surname": request.form['surnameInput'],
         "lastname": request.form['lastnameInput'],
-        "salery": request.form['saleryInput'],
+        "salary": request.form['salaryInput'],
         "department": request.form['departmentInput'],
     }
     #call own api
@@ -68,7 +68,7 @@ def api_employees_create(employee = None):
     if employee == None:
         employee = request.get_json()
     cur = get_db().cursor()
-    cur.execute("INSERT INTO employees (surname,lastname,salery,department) values (?,?,?,?)",[employee["surname"],employee["lastname"],employee["salery"],employee["department"]])
+    cur.execute("INSERT INTO employees (surname,lastname,salary,department) values (?,?,?,?)",[employee["surname"],employee["lastname"],employee["salary"],employee["department"]])
     return ('', 200)
 
 @app.route('/api/employees/delete/<id>', methods=["post"])
