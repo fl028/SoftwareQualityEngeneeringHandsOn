@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 # unit testing with default unittest lib by python
 # run tests: python -m unittest discover tests/unittest
 
-class TestDatabase(unittest.TestCase):
+class TestGUI(unittest.TestCase):
   driver = None
 
   def setUp(self):
