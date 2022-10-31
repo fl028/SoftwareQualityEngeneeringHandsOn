@@ -1,21 +1,20 @@
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 import webapp.db
 from webapp.model_employee import employee
+
 
 # unit testing with default unittest lib by python
 # run tests: python -m unittest discover tests/unittest
 
 class TestDatabase(unittest.TestCase):
     def setUp(self):
-        print("setUp")
+        print("\nsetUp")
         db = webapp.db.DB()
         db.init_db()
 
     def tearDown(self):
-        print("tearDown")
-        db = webapp.db.DB()
-        db.init_db()
+        print("tearDown\n")
 
     def test_get_all_employees(self):
         # arrange
@@ -24,6 +23,20 @@ class TestDatabase(unittest.TestCase):
         employees = db.get_all_employees()
         #assert
         self.assertEqual(len(employees), 3, "Should be 3")
+
+    def get_all_employees_mock(*args, **kwargs):
+        print('Mock DB call')
+        mock_employees = { "data": [[1,"Maxi","Mueller",100000,"Development"]]}
+        return mock_employees
+
+    @patch('webapp.db.DB.get_all_employees', side_effect=get_all_employees_mock)
+    def test_get_all_employees_mock(self, employees_mock):
+        # arrange
+        db = webapp.db.DB()
+        # act
+        employees = db.get_all_employees()
+        #assert
+        self.assertEqual(len(employees), 1, "Should be 1")
 
     def test_raise_salary(self):
         # arrange
