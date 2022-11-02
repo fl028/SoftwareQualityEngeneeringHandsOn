@@ -1,3 +1,5 @@
+import random
+
 class employee():
   id = None
   surname = None
@@ -16,4 +18,4 @@ class employee():
     return  self.surname + " " + self.lastname
 
   def get_new_salary(self):
-    return self.salary + 1000
+    return self.salary + random.randint(1000, 10000)
