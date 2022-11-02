@@ -56,6 +56,5 @@ class TestDatabase(unittest.TestCase):
         #assert
         self.assertGreater(employee_juergen_new_salary,employee_juergen.salary, "new salary should be bigger")
 
-
 if __name__ == '__main__':
     unittest.main()
