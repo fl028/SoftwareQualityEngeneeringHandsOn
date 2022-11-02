@@ -7,9 +7,10 @@ except:
 
 class DB():
     connection = None
-    employee_peter = employee(None,"Peter","Maier",100000,"Development")
-    employee_juergen = employee(None,"Juergen","Dieter",25000,"IT")
-    employee_max = employee(None,"Max","Mustermann",30000,"Marketing")
+
+    employee_peter = employee(None,"Peter","Maier",50000,"Development")
+    employee_juergen = employee(None,"Juergen","Dieter",60000,"IT")
+    employee_max = employee(None,"Max","Mustermann",65000,"Marketing")
     initial_employees = [employee_peter,employee_juergen,employee_max]
 
     def __init__(self):
