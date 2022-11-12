@@ -43,8 +43,8 @@ class TestGUI(unittest.TestCase):
         #assert
         self.assertEqual(info_search.text,'There are 3 entries in the database.', 'Message not displayed correct.')
 
-    def test_gui_create_employe(self):
-        #TODO
+    def test_gui_create_employee(self):
+        #TODO: Aufgabe 2
         pass
 
 if __name__ == '__main__':
